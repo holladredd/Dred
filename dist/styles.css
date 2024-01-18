@@ -2307,6 +2307,10 @@ input:checked + .toggle-bg {
     inset: 0px;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:h-auto {
     height: auto;
   }
