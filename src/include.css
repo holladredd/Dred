@@ -13,15 +13,15 @@
   }
   @font-face{
     font-family: myFont;
-    src: url(Game\ Of\ Squids.ttf);
+    src: url(fonts/Game\ Of\ Squids.ttf);
   }
   @font-face{
     font-family: Misa;
-    src: url(13_Misa.TTF);
+    src: url(fonts/13_Misa.TTF);
   }
   @font-face{
     font-family: fasterstroker ;
-    src: url(Faster\ Stroker.otf);
+    src: url(fonts/Faster\ Stroker.otf);
   }
   :root{
     --bg-size: 400%;
