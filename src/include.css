@@ -251,6 +251,9 @@ radial-gradient(at 0% 0%, hsla(235,94%,19%,1) 0px, transparent 50%) ;
     }
     .navbar.active #navbarext{
         height: 24rem;
+        width: 100%0;
+        padding-left: 4px;
+        padding-right: 4px;
         position: absolute;
         bottom: 0;
         left: 0;
