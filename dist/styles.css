@@ -2264,6 +2264,10 @@ input:checked + .toggle-bg {
     display: flex;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
