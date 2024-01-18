@@ -209,7 +209,7 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
     transition: 0.4s ease;
 }
 .navbar.active{
-    height: 100vh;
+    height: 100%;
     background: rgba(1, 4, 133, 0.555);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
