@@ -39,12 +39,12 @@ body::after{
     content: '';
     width: 100%;
     height: 100vh;
-    background-image: url("#particles-js");
     z-index: -40;
     mix-blend-mode: normal;
 }
 body::before{
     background: #0000;
+    background-image: url("#particles-js");
     filter: url("data:image/svg+xml,%3C!-- svg: first layer --%3E%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 
 }
@@ -201,7 +201,7 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
         }
     }
 .navbar{
- width: 90%;
+
     position: absolute;
     top: 0;
     left: 0;
