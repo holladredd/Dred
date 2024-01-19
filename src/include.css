@@ -31,9 +31,8 @@
     --color-four: #392d91;
     --name-background: linear-gradient(45deg, var(--color-one), var(--color-two), var(--color-three), var(--color-four), var(--color-one)) 0 0 / var(--bg-size) 100%;
   }
-  .container::before,
+.container::before,
 .container::after{
-    width: 90%; /* Adjust as needed */
     margin: 0 auto;
     justify-content: center;
     align-items: center;
@@ -42,6 +41,7 @@
     top: 0;
     left: 0;
     content: '';
+    width: 100%;
     height: 100vh;
     margin:0;
     padding: 0;
@@ -79,14 +79,7 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
     radial-gradient(at 0% 50%, hsla(229,96%,36%,1) 0px, transparent 50%);
     animation: gradientAnimation 30s ease infinite;
 }
-    #particles-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-    }
+
 
     .glass{
         z-index: 50;
@@ -105,17 +98,6 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
         -webkit-backdrop-filter: blur(5.7px);
         /* border: 1px solid rgba(255, 255, 255, 0.45); */
 
-    }
-    .border-glass {
-        border: #ffffff25;
-
-        border-width: 15px;
-      
-        /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(5.7px);
-        -webkit-backdrop-filter: blur(5.7px); */
-        /* border: 1px solid rgba(255, 255, 255, 0.45); */
-   
     }
         @keyframes move-bg {
             to {
@@ -150,49 +132,6 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
         border-image-outset: 2px; /* Adjust the outset of the border */
    
     }
-    
-
-        .hover\:shadow-\[5px_5px_rgba\(0\2c _98\2c _90\2c _0\.4\)\2c _10px_10px_rgba\(0\2c _98\2c _90\2c _0\.3\)\2c _15px_15px_rgba\(0\2c _98\2c _90\2c _0\.2\)\2c _20px_20px_rgba\(0\2c _98\2c _90\2c _0\.1\)\2c _25px_25px_rgba\(0\2c _98\2c _90\2c _0\.05\)\]:hover {
-            --tw-shadow: 5px 5px rgba(0, 7, 98, 0.4), 10px 10px rgba(0, 7, 98, 0.3), 15px 15px rgba(0, 7, 98, 0.2), 20px 20px rgba(0, 7, 98, 0.1), 25px 25px rgba(0, 7, 98, 0.05);
-            --tw-shadow-colored: 5px 5px var(--tw-shadow-color), 10px 10px var(--tw-shadow-color), 15px 15px var(--tw-shadow-color), 20px 20px var(--tw-shadow-color), 25px 25px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-        }
-    
-    #animatedBox::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        background: linear-gradient(45deg, #1105eb75, #0a0657, #3930e48c, #0a0657); /* Gradient animation on border */
-        background-size: 400% 400%;
-        animation: gradientAnimation 15s ease infinite;
-    }
-
-    #animatedBox:hover {
-        transform: scale(1.3); /* Scale in place without moving */
-        /* border: 2px solid #fff; Border animation on hover */
-   
-    }
-
-    #animatedBox.clicked {
-        animation: clickAnimation 0.3s ease-in-out;
-    }
-
-    @keyframes clickAnimation {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(0.8);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-
     .animate-on-load {
         animation: fade-in 2s ease-in-out;
     }
@@ -218,9 +157,8 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
 .navbar.active{
     height: 100%;
     background: rgba(1, 4, 133, 0.555);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
 }
 
@@ -231,6 +169,7 @@ radial-gradient(at 0% 50%, hsla(229,60%,12%,1) 0px, transparent 50%);
         position: absolute;
         left: 0;
         right: 0;
+        padding: 10px;
         transition: 0.4s ease;
 
     }
