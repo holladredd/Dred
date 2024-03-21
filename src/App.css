@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import-normalize;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "pecifico";
+}
+@font-face {
+  font-family: Squids;
+  src: url(src/fonts/Game\ Of\ Squids.ttf);
+}
+@font-face {
+  font-family: Anta;
+  src: url(src/fonts/Anta-Regular.ttf);
+}
+@font-face {
+  font-family: Playfair;
+  src: url(src/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: Misa;
+  src: url(src/fonts/13_Misa.TTF);
+}
+@font-face {
+  font-family: fasterstroker;
+  src: url(src/fonts/Faster\ Stroker.otf);
+}
+
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg-size: 400%;
+  --color-one: #c7d9f715;
+  --color-two: #b2aa8e;
+  --color-three: #009b4d;
+  --color-four: #0c1a3294;
+  --color-four: #00000063;
+
+  --name-background: linear-gradient(
+      45deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-three),
+      var(--color-four),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+}
+
+.container::before,
+.container::after {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  content: "";
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  margin: 0;
+  padding: 0;
+  z-index: -40;
+
+  mix-blend-mode: multiply;
+  background-color: #0c1a32;
+}
+
+.container::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+}
+
+.cursor {
+  background-color: #c7d9f715;
+  height: 6px;
+  width: 6px;
+  border: 18px solid #c7d9f715;
+  border-radius: 50%;
+  backdrop-filter: "blur(60px)";
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  mix-blend-mode: difference;
+}
