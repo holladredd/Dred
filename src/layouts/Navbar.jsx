@@ -17,6 +17,7 @@ import { PiPhoneCallFill } from "react-icons/pi";
 import { SiOpenproject } from "react-icons/si";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import hdLogo from "../img/hd.png";
 
 const navItems = [
   {
@@ -133,7 +134,13 @@ const Navbar = () => {
     <div>
       <nav className="relative bg-transparent z-50 mix-blend-difference">
         <div className="flex justify-between items-center p-2">
-          <div className="w-14 h-14 m-4 rounded-full opacity-80 bg-gray-800"></div>
+          <div className="w-14 h-14 m-4 rounded-full opacity-00">
+            <img
+              src={hdLogo}
+              alt="HD Logo"
+              className="w-20 h-20  rounded-full opacity-80 "
+            />
+          </div>
 
           <AnimatePresence initial={false} mode="wait">
             {open ? (

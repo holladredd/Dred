@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoMdCloudDownload } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import dreddImage from "../img/dredd2.jpg";
+import dreddImage from "../img/dredd.png";
 
 const About = () => {
   const dropIn = {
@@ -58,7 +58,6 @@ const About = () => {
     visible: {
       y: 0,
       scale: 1,
-      backgroundImage: "linear-gradient(to right bottom, #009B4D, #c7d9f7fd)",
       padding: 10,
       opacity: 1,
       transition: {
@@ -94,7 +93,7 @@ const About = () => {
             animate="visible"
             whileHover="hover"
             exit="exit"
-            className="w-72 h-72 md:w-[350px]  md:h-[350px] rounded-full flex justify-center items-center"
+            className="w-72 h-72 md:w-[350px]  bg-gray-800 md:h-[350px] rounded-full flex justify-center items-center"
           >
             <img
               alt="Folayan Olamide Mayokun"
