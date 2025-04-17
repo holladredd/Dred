@@ -6,16 +6,16 @@
 
 /* Custom font definition if needed */
 @font-face {
-  font-family: "squids";
-  src: url("/fonts/Game\ Of\ Squids.ttf") format("ttf");
+  font-family: "Squids";
+  src: url("/fonts/GameOfSquids.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "anta";
-  src: url("/fonts/anta.ttf") format("ttf");
+  font-family: "Anta";
+  src: url("/fonts/Anta-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
