@@ -1,26 +1,53 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-
-      content: {
-        relative: true,
-        transform: (content) => content.replace(/taos:/g, ''),
-        files: ['./src/*.{html,js}', "./src/**/*.{html,js}",
-        "./node_modules/flowbite/**/*.js"],
-      },
-      
-      
-
-
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        squids: ["squids", "sans-serif"],
+        squidsBold: ["squids-bold", "sans-serif"],
+        squidsLight: ["squids-light", "sans-serif"],
+        squidsBlack: ["squids-black", "sans-serif"],
+        squidsThin: ["squids-thin", "sans-serif"],
+        misa: ["misa", "sans-serif"],
+        misaBold: ["misa-bold", "sans-serif"],
+        misaLight: ["misa-light", "sans-serif"],
+        misaBlack: ["misa-black", "sans-serif"],
+        misaThin: ["misa-thin", "sans-serif"],
+        misaRegular: ["misa-regular", "sans-serif"],
+        misaMedium: ["misa-medium", "sans-serif"],
+        misaSemiBold: ["misa-semibold", "sans-serif"],
+        misaExtraBold: ["misa-extrabold", "sans-serif"],
+        misaExtraLight: ["misa-extralight", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
+        playfairBold: ["Playfair Display Bold", "serif"],
+        playfairLight: ["Playfair Display Light", "serif"],
+        playfairBlack: ["Playfair Display Black", "serif"],
+        playfairThin: ["Playfair Display Thin", "serif"],
+        playfairRegular: ["Playfair Display Regular", "serif"],
+        playfairMedium: ["Playfair Display Medium", "serif"],
+        playfairSemiBold: ["Playfair Display Semibold", "serif"],
+        playfairExtraBold: ["Playfair Display ExtraBold", "serif"],
+        anta: ["Antagomoon", "sans-serif"],
+        antaBold: ["Antagomoon Bold", "sans-serif"],
+        antaLight: ["Antagomoon Light", "sans-serif"],
+        antaBlack: ["Antagomoon Black", "sans-serif"],
+        antaThin: ["Antagomoon Thin", "sans-serif"],
+        antaRegular: ["Antagomoon Regular", "sans-serif"],
+        antaMedium: ["Antagomoon Medium", "sans-serif"],
+        antaSemiBold: ["Antagomoon Semibold", "sans-serif"],
+        antaExtraBold: ["Antagomoon ExtraBold", "sans-serif"],
+        antaExtraLight: ["Antagomoon ExtraLight", "sans-serif"],
+        stroker: ["Stroker", "sans-serif"],
+        strokerBold: ["Stroker Bold", "sans-serif"],
+        strokerLight: ["Stroker Light", "sans-serif"],
+        strokerBlack: ["Stroker Black", "sans-serif"],
+      },
+      colors: {
+        "dredd-blue": "#c7d9f7fd",
+        "dredd-green": "#009b4d",
+      },
+    },
   },
-  plugins: [
-    require('flowbite/plugin','taos/plugin')
-  ],
-  safelist: [
-    '!duration-[0ms]',
-    '!delay-[0ms]',
-    'html.js :where([class*="taos:"]:not(.taos-init))'
-  ]
-}
-
+  plugins: [],
+};

@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import React from "react";
 import { motion } from "framer-motion";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,6 @@ const dropIn = {
   },
   scaleone: {
     scale: 1,
-
     color: "#009b4d",
   },
   exit: {
@@ -42,32 +41,18 @@ const dropIn = {
     scale: 0.6,
   },
 };
+
 const Home = () => {
   const navi = useNavigate();
   function navigate() {
     navi("/About");
   }
+
   return (
     <PageTransition>
-      <Box
-        sx={{
-          display: { xs: "flex", md: "flexbox" },
-          flexDirection: { xs: "column" },
-
-          alignItems: { xs: "center", md: "flex-start" },
-        }}
-      >
-        <Typography
-          sx={{
-            zIndex: 0,
-            fontSize: { md: 150 },
-            fontFamily: "squids",
-            color: "#c7d9f7fd",
-            margin: 0,
-          }}
-          variant="h1"
-          color="initial"
-          component={motion.h1}
+      <div className="flex flex-col items-center md:items-start mt-0 pt-0">
+        <motion.h1
+          className="z-0 font-squids text-gray-800 m-0 p-0 text-7xl md:text-[150px] leading-none"
           variants={dropIn}
           initial="hidden"
           animate="visible"
@@ -75,18 +60,10 @@ const Home = () => {
           exit="exit"
         >
           Hello
-        </Typography>
-        <Typography
-          sx={{
-            zIndex: 0,
-            fontFamily: "squids",
-            color: "#c7d9f7fd",
-            margin: 0,
-            fontSize: { md: 130 },
-          }}
-          variant="h1"
-          color="initial"
-          component={motion.h1}
+        </motion.h1>
+
+        <motion.h1
+          className="z-0 font-squids text-gray-800 m-0 p-0 text-7xl md:text-[130px] leading-none"
           variants={dropIn}
           initial="hidden"
           animate="visible"
@@ -94,17 +71,10 @@ const Home = () => {
           exit="exit"
         >
           i am
-        </Typography>
-        <Typography
-          sx={{
-            zIndex: 0,
-            fontFamily: "squids",
-            color: "#c7d9f7fd",
-            fontSize: { md: 150 },
-          }}
-          variant="h1"
-          color="initial"
-          component={motion.h1}
+        </motion.h1>
+
+        <motion.h1
+          className="z-0 font-squids text-gray-800 text-7xl md:text-[150px] m-0 p-0 leading-none"
           variants={dropIn}
           initial="hidden"
           animate="visible"
@@ -112,28 +82,21 @@ const Home = () => {
           exit="exit"
         >
           Dredd
-        </Typography>
-        <Button
-          variant="text"
-          component={motion.button}
+        </motion.h1>
+
+        <motion.button
           variants={dropIn}
           initial="hidden"
           animate="visible"
           whileHover="scaleone"
           exit="exit"
-          sx={{
-            fontFamily: "squids",
-            color: "#c7d9f7fd",
-            display: "flex",
-            justifySelf: "center",
-            alignSelf: "center",
-          }}
-          startIcon={<FaLongArrowAltRight />}
+          className="font-squids text-gray-800 flex justify-center self-center items-center mt-4"
           onClick={navigate}
         >
+          <FaLongArrowAltRight className="mr-2" />
           Learn More
-        </Button>
-      </Box>
+        </motion.button>
+      </div>
     </PageTransition>
   );
 };

@@ -1,10 +1,11 @@
 import "./App.css";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./layouts/Navbar";
 import { AnimatePresence, motion } from "framer-motion";
 import { Suspense, useEffect, useState } from "react";
-import { Box } from "@mui/material";
+
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -44,20 +45,31 @@ function App() {
     },
   };
   const location = useLocation();
+
   return (
-    <Box className="container">
+    <div
+      className="mx-auto bg-gray-200  bg-opacity-50 items-center min-h-screen"
+      style={{
+        backgroundImage: `url(
+                "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"
+              )`,
+        backgroundBlendMode: "darken",
+        backdropFilter: "none",
+      }}
+    >
       <motion.div
-        className="cursor"
+        className="cursor fixed w-8 h-8 mix-blend-difference rounded-full bg-gray-500 bg-opacity-25 pointer-events-none z-40"
         zIndex={40}
         variants={variants}
         animate="default"
       />
-      {/* <Particle /> */}
 
-      <Navbar zIndex={40} />
+      <Navbar className="z-40" />
 
       <AnimatePresence initial={false} mode="wait">
-        <Suspense fallback={<h1>loading....</h1>}>
+        <Suspense
+          fallback={<div className="text-center text-xl">Loading...</div>}
+        >
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About />} />
@@ -71,7 +83,7 @@ function App() {
           </Routes>
         </Suspense>
       </AnimatePresence>
-    </Box>
+    </div>
   );
 }
 

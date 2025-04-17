@@ -1,37 +1,39 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import React from "react";
 import PageTransition from "./../components/PageTransition";
 import { motion } from "framer-motion";
 import { CgDesignmodo } from "react-icons/cg";
-import { MdAnimation, MdModelTraining, MdBook } from "react-icons/md";
+import { MdAnimation, MdModelTraining } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
 // import { useNavigate } from "react-router-dom";
 const works = [
   {
     id: 1,
-    title: "Graphics Design",
-    desc: "For websites and mobile applications, I create the graphics. To design graphics, I use Adobe Photoshop. I create business cards, banners, logos, info-graphics, and many other things. I'm here to assist you with your needs around-the-clock.",
+    title: "Full-Stack Web Engineer",
+    desc: "I specialize in building fast, secure, and scalable web applications from the ground up. With expertise in React, Node.js, Express, and MongoDB, I handle everything from responsive front-end development to robust back-end architecture. Whether it's a business platform, dashboard, or custom web tool, I bring ideas to life with clean, maintainable code and modern development practices.",
     icons: <CgDesignmodo size={40} />,
   },
   {
     id: 2,
-    title: "Animations",
-    desc: "I create all kinds of animations. I am proficient in info-graphic and advertisement animation, and I can create an animation for your logos. I work quickly and efficiently thanks to the usage of Adobe After Effects, Premier Pro, and other great programs like inshot and KinMaster. I'm here to help you day or night anytime you need it.",
+    title: "Mobile App Engineer",
+    desc: "As a mobile app developer, I create seamless cross-platform experiences using React Native and Expo. My apps are optimized for performance and usability, delivering native-like functionality on both Android and iOS devices. From user interface to backend integration, I build applications that are intuitive, efficient, and ready for real-world use.",
     icons: <MdAnimation size={40} />,
   },
   {
     id: 3,
-    title: "Training",
-    desc: "I also teach folks how to enter the tech industry. Your choice of language and the sort of stack you intend to utilize will influence my services. I can either use physical or online training modes.",
+    title: "Graphics Design",
+    desc: "I design sleek, impactful graphics for websites and mobile apps using Adobe Photoshop. My work includes logos, banners, business cards, infographics, and more — all tailored to fit the tone and branding of your business. Clean visuals and thoughtful design choices are at the core of everything I create.",
     icons: <MdModelTraining size={40} />,
   },
   {
     id: 4,
-    title: "Book Publishing",
-    desc: "With the aid of Amazon KDP and other platforms, I publish books. a number of genres, including instruction manuals, sketching books, and love stories. I've been doing it for a long time. Please feel free to get in touch with me about any project; I'll always be here for you.",
-    icons: <MdBook size={40} />,
+    title: "Tech Training",
+    desc: "I help aspiring developers break into tech with personalized training programs. Whether you're just getting started or want to level up your skills, I provide hands-on guidance in full-stack development, tailored to your preferred language or stack. My training is available both online and in-person, designed to be practical, flexible, and results-driven.",
+    icons: <FaChalkboardTeacher size={40} />,
   },
 ];
+
 const About2 = () => {
   const subComponent = {
     hidden: {
@@ -42,7 +44,7 @@ const About2 = () => {
     visible: {
       y: 0,
       scale: 1,
-      color: "#c7d9f7fd",
+      color: "#1e293b", // Updated to gray-800
       opacity: 0.9,
       transition: {
         duration: 0.7,
@@ -53,7 +55,6 @@ const About2 = () => {
     },
     hover: {
       scale: 0.98,
-
       y: -10,
       border: "2px solid #009b4d",
       borderRadius: 12.5,
@@ -64,12 +65,10 @@ const About2 = () => {
     },
     scale: {
       scale: 1,
-
       color: "#009b4d",
     },
     scaleone: {
       scale: 1,
-
       color: "#009b4d",
     },
     exit: {
@@ -82,15 +81,14 @@ const About2 = () => {
 
   return (
     <PageTransition>
-      <Box
-        component={motion.div}
+      <motion.div
         initial={{
           opacity: 0,
           scale: 0.8,
         }}
         animate={{
           opacity: 1,
-          scale: 1,
+          scale: 0.9,
         }}
         whileHover={{
           opacity: 0.7,
@@ -99,52 +97,29 @@ const About2 = () => {
           opacity: 0,
           scale: 0.8,
         }}
-        sx={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-          alignItems: "center",
-          zIndex: 40,
-          position: "absolute",
-          bottom: -30,
-        }}
+        className="flex w-full justify-between items-center z-40 absolute bottom-[20px]"
       >
-        <Button
-          vairant="text"
+        <button
           onClick={() => navi("/About")}
-          sx={{ marginLeft: 1, padding: 2, color: "#c7d9f7fd" }}
+          className="ml-1 p-2 text-gray-800 font-squids hover:text-dredd-green transition-colors duration-300"
         >
-          {/* <IoIosArrowBack size={60} /> */}
           go back
-        </Button>
-        <Button
-          vairant="text"
+        </button>
+        <button
           onClick={() => navi("/Skills")}
-          sx={{ marginRight: 1, padding: 2, color: "#c7d9f7fd" }}
+          className="mr-1 p-2 text-gray-800 font-squids hover:text-dredd-green transition-colors duration-300"
         >
-          {/* <IoIosArrowForward size={60} /> */}
           Go to skills
-        </Button>
-      </Box>
-      <Grid
-        container
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-          width: "100%",
-          height: { sm: "fit", md: "85vh" },
-          marginBottom: 5,
-        }}
-      >
-        <Box
-          component={motion.div}
+        </button>
+      </motion.div>
+
+      <div className="flex flex-wrap items-center justify-around w-full h-auto sm:h-auto md:h-[85vh] mb-5">
+        <motion.div
           variants={subComponent}
           initial="hidden"
           animate={{
             y: 0,
             scale: 1,
-
             opacity: 0.9,
             transition: {
               duration: 0.7,
@@ -154,103 +129,40 @@ const About2 = () => {
             },
           }}
           exit="exit"
-          sx={{ width: "100%", display: "flex", justifyContent: "center" }}
+          className="w-full flex justify-center"
         >
-          <Typography variant="h4" color="#c7d9f7fd" fontFamily="squids">
+          <h4 className="text-gray-800 font-squids text-3xl md:text-4xl">
             My Works
-          </Typography>
-        </Box>
+          </h4>
+        </motion.div>
+
         {works.map((work, id) => (
-          <Grid
+          <motion.div
             key={id}
-            item
-            xs={11}
-            md={5}
-            component={motion.div}
             variants={subComponent}
             initial="hidden"
             animate="visible"
             whileHover="hover"
             exit="exit"
-            sx={{
-              margin: "4px",
-              padding: "1px",
-            }}
+            className="w-11/12 md:w-5/12 p-[1px]"
           >
-            <Box
-              sx={{
-                borderRadius: 3,
-                display: "flex",
-                padding: "10px",
-                textAlign: { xs: "center", md: "start" },
-              }}
-            >
-              <Box
-                sx={{
-                  width: "100%",
-                  padding: "2x",
-                  textAlign: { xs: "center", md: "start" },
-                }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    display: "flex",
-                    textAlign: "center",
-                    alignItems: "center",
-                    color: "#c7d9f7fd",
-                  }}
-                >
+            <div className="rounded-lg flex p-[10px] text-center md:text-start">
+              <div className="w-full p-[2px] text-center md:text-start">
+                <div className="w-full flex text-center items-center  text-gray-800">
                   {work.icons}
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      textAlign: "center",
-                      fontFamily: "squids",
-                      color: "#c7d9f7fd",
-                      borderBottom: "2px solid #c7d9f7fd",
-                      // borderLeft: "2px solid #c7d9f7fd",
-                    }}
-                  >
+                  <h5 className="text-center ms-4  font-squids text-gray-800 border-b-2 border-gray-800">
                     {work.title}
-                  </Typography>
-                </Box>
-                {/* <Box
-                  component={motion.div}
-                  variants={subComponent}
-                  initial="hidden"
-                  animate={{ width: "100%" }}
-                  whileHover="width"
-                  exit="exit"
-                  sx={{
-                    width: "100%",
-                    marginTop: "5px",
-                    padding: "1px",
-                  }}
-                ></Box> */}
-                <Typography
-                  variant="caption"
-                  sx={{
-                    textAlign: { xs: "justify", md: "start" },
-                    fontFamily: "Anta",
-                    color: "#c7d9f7fd",
-                  }}
-                >
+                  </h5>
+                </div>
+                <p className="text-justify md:text-start font-['Anta'] text-gray-800 text-sm md:text-base">
                   {work.desc}
-                </Typography>
-                <Box
-                  sx={{
-                    width: "100%",
-                    marginTop: "5px",
-                    padding: "1px",
-                    backgroundColor: "#c7d9f7fd",
-                  }}
-                ></Box>
-              </Box>
-            </Box>
-          </Grid>
+                </p>
+                <div className="w-full mt-[5px] p-[1px] bg-gray-800"></div>
+              </div>
+            </div>
+          </motion.div>
         ))}
-      </Grid>
+      </div>
     </PageTransition>
   );
 };

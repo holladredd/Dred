@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import React from "react";
+
 // eslint-disable-next-line react/prop-types
 const PageTransition = ({ children }) => {
   const widthAnimation = {
@@ -19,19 +21,20 @@ const PageTransition = ({ children }) => {
         stiffness: 500,
       },
     },
-
     exit: {
       y: 0,
       opacity: 1,
       scale: 0.6,
     },
   };
+
   return (
     <motion.div
       variants={widthAnimation}
       initial="hidden"
       animate="visible"
       exit="exit"
+      className="w-full"
     >
       {children}
     </motion.div>

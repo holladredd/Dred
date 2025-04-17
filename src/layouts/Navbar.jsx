@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { AppBar, Avatar, Box, Toolbar, Grid, Typography } from "@mui/material";
+import React from "react";
 import { useState } from "react";
-// import NavCard from "../components/NavCard";
 import {
   MdClose,
   MdMenu,
@@ -66,11 +65,9 @@ const dropIn = {
     scale: 0.8,
   },
   visible: {
-    color: "#c7d9f7fd",
     y: 0,
     x: 0,
-    scale: 1,
-
+    scale: 0.9,
     opacity: 0.8,
     transition: {
       duration: 0.7,
@@ -80,9 +77,10 @@ const dropIn = {
     },
   },
   hover: {
-    scale: 0.95,
+    scale: 0.9,
     y: 0,
     x: 0,
+    color: "#009b4d",
   },
   color: {
     color: "#009b4d",
@@ -96,33 +94,35 @@ const dropIn = {
     opacity: 0,
   },
 };
+
 const links = [
   {
     id: 1,
     linkTo: "https://web.facebook.com/folayan.olamide.1",
-    icon: <MdFacebook color="#c7d9f7fd" size={30} />,
+    icon: <MdFacebook className="text-gray-800" size={40} />,
   },
   {
     id: 2,
     linkTo: "https://www.instagram.com/dev_dredd?igsh=NXozcGk5eTFoajZo",
-    icon: <RiInstagramFill size={30} color="#c7d9f7fd" />,
+    icon: <RiInstagramFill size={40} className="text-gray-800" />,
   },
   {
     id: 3,
     linkTo: "https://wa.me/+2348160630642",
-    icon: <IoLogoWhatsapp size={30} color="#c7d9f7fd" />,
+    icon: <IoLogoWhatsapp size={40} className="text-gray-800" />,
   },
   {
     id: 4,
     linkTo: "https://github.com/holladredd",
-    icon: <IoLogoGithub size={30} color="#c7d9f7fd" />,
+    icon: <IoLogoGithub size={40} className="text-gray-800" />,
   },
   {
     id: 5,
     linkTo: "https://x.com/Holla_Dredd?s=09",
-    icon: <RiTwitterXLine size={30} color="#c7d9f7fd" />,
+    icon: <RiTwitterXLine size={40} className="text-gray-800" />,
   },
 ];
+
 const Navbar = () => {
   const [open, setOpen] = useState();
   const openDrawer = () => {
@@ -130,35 +130,14 @@ const Navbar = () => {
   };
 
   return (
-    <Box>
-      <AppBar
-        position="relative"
-        elevation={0}
-        sx={{
-          backgroundColor: "transparent",
-          zIndex: 50,
-          position: { xs: "fixed" },
-          backdropFilter: "none",
-
-          mixBlendMode: "difference",
-        }}
-      >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Avatar
-            alt="Dredd"
-            src="../hd.png"
-            sx={{
-              width: 60,
-              height: 60,
-
-              opacity: 0.8,
-            }}
-          />
+    <div>
+      <nav className="relative bg-transparent z-50 mix-blend-difference">
+        <div className="flex justify-between items-center p-2">
+          <div className="w-14 h-14 m-4 rounded-full opacity-80 bg-gray-800"></div>
 
           <AnimatePresence initial={false} mode="wait">
             {open ? (
-              <Box
-                component={motion.div}
+              <motion.div
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
@@ -168,13 +147,12 @@ const Navbar = () => {
                 <MdClose
                   color="#c7d9f7fd"
                   onClick={openDrawer}
-                  size={40}
-                  zIndex={40}
+                  size={50}
+                  className="z-40 m-4"
                 />
-              </Box>
+              </motion.div>
             ) : (
-              <Box
-                component={motion.div}
+              <motion.div
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
@@ -184,173 +162,87 @@ const Navbar = () => {
                 <MdMenu
                   color="#c7d9f7fd"
                   onClick={openDrawer}
-                  size={40}
-                  zIndex={40}
+                  size={50}
+                  className="z-40 m-4"
                 />
-              </Box>
+              </motion.div>
             )}
           </AnimatePresence>
-        </Toolbar>
-      </AppBar>
+        </div>
+      </nav>
+
       <AnimatePresence initial={false} mode="wait">
-        {open ? (
-          <Grid
-            container
-            sx={{
-              display: open ? "flex" : "none",
-              justifyContent: "space-around",
-              textAlign: "center",
-              backdropFilter: "blur(10px)",
-              paddingBottom: 6,
-              paddingTop: 6,
-              position: { xs: "fixed", md: "absolute" },
-              top: 0,
-              backgroundColor: "#0c1a32d3",
-              backgroundImage: `url(
-                "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"
-              )`,
+        {open && (
+          <div
+            className="flex flex-wrap justify-around text-center backdrop-blur-md pb-6 pt-6 fixed md:absolute top-0 bg-gray-200 w-full h-full z-40"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E")`,
               backgroundBlendMode: "darken",
-              width: "100%",
-              height: "100%",
             }}
-            zIndex={40}
           >
-            <Grid
-              item
-              xs={10}
-              sx={{
-                justifyContent: "flex-end",
-                alignItems: "center",
-                color: "#c7d9f7fd",
-                height: "10vh",
-                display: { sm: "flex", xs: "none" },
-              }}
-              component={motion.div}
+            <motion.div
+              className="w-10/12 justify-end items-center text-gray-800 h-[10vh] hidden sm:flex"
               variants={dropIn}
               initial="hidden"
               animate="visible"
               exit="exitup"
             >
-              <Box
-                sx={{
-                  width: "20%",
-                  display: "flex",
-                  color: "#c7d9f7fd",
-                  justifyContent: "space-between",
-                }}
-              >
+              <div className="w-1/5 flex text-gray-800 justify-between">
                 {links.map((link, id) => (
                   <Link key={id} to={link.linkTo}>
                     {link.icon}
                   </Link>
                 ))}
-              </Box>
-            </Grid>
-            <Box
-              sx={{
-                width: "100%",
-                height: "10vh",
-                padding: 0,
-                display: { sm: "flex", xs: "none" },
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="h1"
-                fontFamily="squids"
-                component={motion.div}
+              </div>
+            </motion.div>
+
+            <div className="w-full h-[10vh] p-0 hidden sm:flex justify-center items-center">
+              <motion.h1
+                className="font-squids text-gray-800 text-9xl"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
                 whileHover="color"
                 exit="exitup"
-                sx={{ color: "#c7d9f7fd" }}
               >
                 dredd
-              </Typography>
-            </Box>
+              </motion.h1>
+            </div>
+
             {navItems.map((navItem, id) => (
-              <Grid
-                item
+              <motion.div
                 key={id}
-                xs={10}
-                md={5}
-                component={motion.div}
+                className="w-10/12 md:w-5/12 flex items-center justify-center mt-2"
                 drag
                 initial="hidden"
                 animate="visible"
                 variants={dropIn}
                 exit="exit"
                 whileHover="hover"
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "100%",
-                  marginTop: 2,
-                }}
               >
-                <Box
-                  component={Link}
+                <Link
                   to={navItem.link}
                   onClick={() => setOpen(false)}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    width: "100%",
-                    heigth: "fit",
-                    borderRadius: 4,
-                    backdropFilter: "blur(10px)",
-                    backgroundColor: "#0c1a32d3",
-                    // backgroundImage:
-                    //   "linear-gradient(to right bottom, #009b4d, #6898f8)",
-                    opacity: "90%",
-                  }}
+                  className="flex justify-center w-full h-full rounded-lg backdrop-blur-lg bg-blend-darken bg-gray-300  opacity-90"
                 >
-                  <Box
-                    sx={{
-                      position: "relative",
-                      width: "100%",
-                      heigth: "100%",
-                      borderRadius: "10px",
-                      border: "2px solid #c7d9f7fd",
-                      mixBlendMode: "normal",
-                      backgroundColor: "none",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: "95%",
-                        padding: "5px",
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          width: "100%",
-                          color: "#c7d9f7fd",
-                        }}
-                      >
+                  <div className="relative w-full h-full rounded-[10px] border-2 border-gray-800 mix-blend-normal bg-transparent">
+                    <div className="w-[95%] p-5 justify-center flex flex-col gap-4">
+                      <div className="flex justify-between w-full text-gray-800">
                         {navItem.icon}
                         <MdAir size={30} />
-                      </Box>
-                      <Typography
-                        sx={{ fontFamily: "Misa" }}
-                        variant="h2"
-                        color="#c7d9f7fd"
-                      >
+                      </div>
+                      <h2 className="font-['Misa'] text-gray-800 text-7xl ">
                         {navItem.text}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-              </Grid>
+                      </h2>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
-          </Grid>
-        ) : null}
+          </div>
+        )}
       </AnimatePresence>
-    </Box>
+    </div>
   );
 };
 

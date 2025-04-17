@@ -1,9 +1,10 @@
-import { Avatar, Box, Button, Grid, Typography } from "@mui/material";
+import React from "react";
 import PageTransition from "./../components/PageTransition";
 import { motion } from "framer-motion";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoMdCloudDownload } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import dreddImage from "../img/dredd2.jpg";
 
 const About = () => {
   const dropIn = {
@@ -30,7 +31,6 @@ const About = () => {
     },
     scale: {
       scale: 1,
-
       color: "#0694c6",
     },
     scaleone: {
@@ -48,6 +48,7 @@ const About = () => {
       opacity: 0,
     },
   };
+
   const subComponent = {
     hidden: {
       y: -50,
@@ -72,7 +73,6 @@ const About = () => {
       rotate: 0.8,
       padding: 2,
     },
-
     exit: {
       y: 20,
       opacity: 0,
@@ -83,175 +83,96 @@ const About = () => {
   function navigate() {
     navi("/About2");
   }
+
   return (
     <PageTransition>
-      <Grid
-        container
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <Grid
-          item
-          xs={11}
-          md={5}
-          lg={4}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 4,
-          }}
-        >
-          <Box
-            component={motion.div}
+      <div className="flex flex-col md:grid md:grid-cols-12 items-center justify-between w-full min-h-fit p-10  ">
+        <div className="col-span-1 md:col-span-5 lg:col-span-4 flex items-center justify-center p-14  ">
+          <motion.div
             variants={subComponent}
             initial="hidden"
             animate="visible"
             whileHover="hover"
             exit="exit"
-            sx={{
-              width: { xs: 250, md: 350 },
-              height: { xs: 250, md: 350 },
-              borderRadius: 50,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+            className="w-72 h-72 md:w-[350px]  md:h-[350px] rounded-full flex justify-center items-center"
           >
-            <Avatar
+            <img
               alt="Folayan Olamide Mayokun"
-              src="./image.jpg"
-              sx={{
-                width: { xs: 250, md: 350 },
-                height: { xs: 250, md: 350 },
-              }}
+              src={dreddImage}
+              className="w-72 md:w-[350px] h-72 md:h-[350px] rounded-full object-cover"
             />
-          </Box>
-        </Grid>
-        <Grid
-          item
-          xs={11}
-          md={5}
-          sx={{
-            padding: "10px",
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-              padding: "2px",
-              textAlign: { xs: "center", md: "start" },
-            }}
-          >
-            <Typography
-              variant="h4"
-              color="whitesmoke"
-              component={motion.div}
+          </motion.div>
+        </div>
+
+        <div className="col-span-1 md:col-span-5 p-[10px] w-full ">
+          <div className="w-full p-[2px] text-center md:text-left">
+            <motion.h4
               variants={dropIn}
               initial="hidden"
               animate="visible"
               whileHover="scaleone"
               exit="exit"
-              sx={{
-                fontFamily: "Anta",
-                fontSize: { xs: 30, md: 60 },
-                margin: "5px",
-              }}
+              className="text-gray-800 font-['Anta'] text-2xl md:text-[60px] m-[5px]"
             >
               Folayan Olamide.M
-            </Typography>
-            <Typography
-              variant="h5"
-              color="whitesmoke"
-              component={motion.div}
+            </motion.h4>
+
+            <motion.h5
               variants={dropIn}
               initial="hidden"
               animate="visible"
               whileHover="scaleone"
               exit="exit"
-              sx={{
-                fontFamily: "playfair",
-                margin: "5px",
-                fontSize: { xs: 30, md: 40 },
-              }}
+              className="text-gray-800 font-['Anta'] m-[5px] text-[30px] md:text-[40px]"
             >
               Software Developer
-            </Typography>
-            <Typography
-              variant="body1"
-              color="whitesmoke"
-              component={motion.div}
+            </motion.h5>
+
+            <motion.p
               variants={dropIn}
               initial="hidden"
               animate="visible"
               whileHover="scaleone"
               exit="exit"
-              sx={{
-                fontFamily: "playfair",
-                fontSize: { md: 20 },
-                textAlign: { xs: "justify", md: "start" },
-                margin: "5px",
-              }}
+              className="text-gray-800 font-['Anta'] md:text-[20px] text-justify md:text-left m-[5px]"
             >
-              Olamide here, although I go by Dredd. As a software developer, my
-              area of expertise is creating effective front- and back-ends for
-              websites that function flawlessly on all platforms and browsers. I
-              am passionate about creating interfaces that are enjoyable and
-              usable for as many users as I can.
-            </Typography>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-              }}
-            >
-              <Button
-                variant="text"
-                color="inherit"
-                component={motion.button}
+              Hi, I’m Dredd — a Full-Stack Web & Mobile App Engineer with a
+              passion for building clean, scalable digital experiences using
+              React, React Native, Node.js, and MongoDB. I also design modern
+              graphics for web and mobile, and I offer tech training to help
+              others break into the industry.
+            </motion.p>
+
+            <div className="w-full flex mt-5">
+              <motion.button
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
                 whileHover="scaleone"
                 exit="exit"
-                sx={{
-                  fontFamily: "squids",
-                  color: "white",
-                  display: "flex",
-                }}
-                startIcon={<IoMdCloudDownload />}
+                className="font-squids text-gray-800 flex items-center mr-4"
                 onClick={navigate}
               >
+                <IoMdCloudDownload className="mr-2" />
                 download cv
-              </Button>
-              <Button
-                variant="outlined"
-                component={motion.button}
+              </motion.button>
+
+              <motion.button
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
                 whileHover="scaletwo"
                 exit="exit"
-                sx={{
-                  fontFamily: "squids",
-                  color: "white",
-                  display: "flex",
-                }}
-                startIcon={<FaLongArrowAltRight />}
+                className="font-squids text-gray-800 flex items-center border border-transparent"
                 onClick={navigate}
               >
+                <FaLongArrowAltRight className="mr-2" />
                 Learn More
-              </Button>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
+              </motion.button>
+            </div>
+          </div>
+        </div>
+      </div>
     </PageTransition>
   );
 };
