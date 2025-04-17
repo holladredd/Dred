@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        squids: ["Squids", "Arial", "sans-serif"],
-        anta: ["Anta", "Arial", "sans-serif"],
+        squids: ["Squids", "sans-serif"],
+        anta: ["Anta", "sans-serif"],
       },
       colors: {
         "dredd-blue": "#c7d9f7fd",
