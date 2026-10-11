@@ -54,37 +54,96 @@ export default function Navbar() {
   const activeView = stack.length > 0 ? stack[0].view : null;
 
   return (
-    <div>
-      {/* Top bar */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] pointer-events-none" aria-label="Site navigation">
-        <div className="flex justify-between items-center p-3 sm:p-5 w-full">
-          <button
-            onClick={() => handleNav(null)}
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-gray-800/40 pointer-events-auto opacity-90 hover:opacity-100 hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-dredd-green"
-            aria-label="Go to home"
-          >
-            <Image src="/img/dredd.png" alt="Folayan Olamide Mayokun" width={64} height={64} className="rounded-full object-cover w-full h-full" priority />
-          </button>
+    <>
+      {/* Top Navbar Header */}
+      <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300">
+        <div className="w-full backdrop-blur-xl bg-white/65 border-b border-gray-400/20 shadow-sm">
+          <div className="w-full px-4 sm:px-8 lg:px-12 py-3 flex items-center justify-between gap-4">
+            {/* Left: Identity & Avatar */}
+            <button
+              onClick={() => handleNav(null)}
+              className="flex items-center gap-3.5 group text-left focus-visible:ring-2 focus-visible:ring-dredd-green rounded-xl p-1 -m-1 transition-transform active:scale-95"
+              aria-label="Folayan Olamide Mayokun - Home"
+            >
+              <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden border-2 border-gray-800/60 shadow-md group-hover:border-dredd-green transition-colors">
+                <Image
+                  src="/img/dredd.png"
+                  alt="Folayan Olamide Mayokun"
+                  width={52}
+                  height={52}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-dredd-green rounded-full border-2 border-white ring-1 ring-black/10" title="Available for projects" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-squids text-gray-900 text-sm sm:text-base tracking-tight leading-tight group-hover:text-dredd-green transition-colors">
+                  Folayan Olamide Mayokun
+                </span>
+                <span className="font-anta text-gray-500 text-xs sm:text-xs tracking-wider">
+                  Full Stack Developer • Web & Mobile
+                </span>
+              </div>
+            </button>
 
-          <AnimatePresence mode="wait" initial={false}>
-            {open ? (
-              <motion.button key="close" variants={toggleV} initial="hidden" animate="visible" whileHover="hover" exit="exit"
-                onClick={() => setOpen(false)} aria-label="Close navigation menu" aria-expanded="true"
-                className="pointer-events-auto p-3 text-gray-800 bg-white/70 backdrop-blur-md rounded-full shadow-md hover:text-dredd-green focus-visible:ring-2 focus-visible:ring-dredd-green transition-colors">
-                <MdClose size={36} />
-              </motion.button>
-            ) : (
-              <motion.button key="open" variants={toggleV} initial="hidden" animate="visible" whileHover="hover" exit="exit"
-                onClick={() => setOpen(true)} aria-label="Open navigation menu" aria-expanded="false"
-                className="pointer-events-auto p-3 text-gray-800 bg-white/70 backdrop-blur-md rounded-full shadow-md hover:text-dredd-green focus-visible:ring-2 focus-visible:ring-dredd-green transition-colors">
-                <MdMenu size={36} />
-              </motion.button>
-            )}
-          </AnimatePresence>
+            {/* Center: Desktop Navigation Bar */}
+            <nav className="hidden md:flex items-center gap-1.5 bg-gray-200/70 border border-gray-400/30 rounded-full px-3 py-1.5 shadow-inner" aria-label="Main Navigation">
+              {navItems.map((item) => {
+                const isActive = activeView === item.view || (activeView === null && item.view === null);
+                const IconComponent = item.Icon;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNav(item.view)}
+                    className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-anta transition-all duration-200 ${
+                      isActive
+                        ? 'bg-gray-900 text-white shadow-sm font-semibold'
+                        : 'text-gray-700 hover:text-gray-950 hover:bg-white/60'
+                    }`}
+                  >
+                    <IconComponent size={14} className={isActive ? 'text-dredd-green' : 'text-gray-500'} />
+                    <span>{item.text}</span>
+                  </button>
+                );
+              })}
+            </nav>
+
+            {/* Right: Social & Menu Toggle */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="hidden lg:flex items-center gap-2.5 mr-2">
+                {socialLinks.map((l) => {
+                  const IconComponent = l.Icon;
+                  return (
+                    <a
+                      key={l.id}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={l.label}
+                      className="p-2 text-gray-600 hover:text-dredd-green hover:bg-gray-200/50 rounded-full transition-all duration-150"
+                    >
+                      <IconComponent size={18} />
+                    </a>
+                  );
+                })}
+              </div>
+
+              {/* Menu Toggle Button */}
+              <button
+                onClick={() => setOpen(!open)}
+                aria-label={open ? 'Close navigation overlay' : 'Open navigation overlay'}
+                aria-expanded={open}
+                className="flex items-center gap-2 px-3 sm:px-4 py-2 text-gray-800 bg-gray-900/5 hover:bg-gray-900/10 border border-gray-400/30 rounded-full shadow-sm text-xs font-anta font-medium transition-all active:scale-95 hover:border-gray-800/50"
+              >
+                <span className="hidden sm:inline text-xs tracking-wider">{open ? 'CLOSE' : 'MENU'}</span>
+                {open ? <MdClose size={20} className="text-dredd-green" /> : <MdMenu size={20} />}
+              </button>
+            </div>
+          </div>
         </div>
-      </nav>
+      </header>
 
-      {/* Full-screen menu */}
+      {/* Full-screen menu overlay */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -93,40 +152,52 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[95] noise-bg flex flex-col items-center justify-center px-4"
-            role="dialog" aria-modal="true" aria-label="Navigation menu"
+            className="fixed inset-0 z-[95] hero-canvas-bg noise-bg flex flex-col items-center justify-center px-4 sm:px-8 py-20"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
           >
-            {/* Social — desktop */}
+            {/* Top Bar inside Overlay */}
+            <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
+              <span className="font-anta text-xs text-gray-500 uppercase tracking-widest">
+                Navigation Directory
+              </span>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((l) => {
+                  const IconComponent = l.Icon;
+                  return (
+                    <a
+                      key={l.id}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={l.label}
+                      className="text-gray-600 hover:text-dredd-green transition-colors"
+                    >
+                      <IconComponent size={22} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Brand Header */}
             <motion.div
-              className="absolute top-6 right-6 hidden sm:flex items-center gap-4 text-gray-800"
+              className="text-center mb-6 select-none"
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.08 }}
+              transition={{ delay: 0.04 }}
             >
-              {socialLinks.map((l) => {
-                const IconComponent = l.Icon;
-                return (
-                  <a key={l.id} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={l.label}
-                    className="hover:text-dredd-green transition-colors duration-200">
-                    <IconComponent size={34} />
-                  </a>
-                );
-              })}
+              <h2 className="font-squids text-gray-900 text-3xl sm:text-5xl tracking-tight">Folayan Olamide</h2>
+              <p className="font-anta text-dredd-green text-sm sm:text-lg mt-1 tracking-wider uppercase">
+                Full Stack Developer | Web & Mobile Applications
+              </p>
             </motion.div>
 
-            {/* Brand */}
-            <motion.div
-              className="text-center mb-8 hidden sm:block select-none"
-              initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.04 }}
-            >
-              <p className="font-squids text-gray-800 text-4xl sm:text-6xl tracking-tight">Folayan Olamide</p>
-              <p className="font-anta text-gray-600 text-xl sm:text-2xl mt-1 tracking-wider">Mayokun</p>
-            </motion.div>
-
-            {/* Nav cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl">
+            {/* Nav Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 w-full max-w-4xl">
               {navItems.map((item) => {
-                const isActive = item.view === activeView;
+                const isActive = item.view === activeView || (activeView === null && item.view === null);
                 const IconComponent = item.Icon;
                 return (
                   <motion.button
@@ -137,37 +208,40 @@ export default function Navbar() {
                     whileHover="hover"
                     exit="exit"
                     onClick={() => handleNav(item.view)}
-                    className={`w-full text-left rounded-xl border-2 p-5 transition-all duration-200 ${
-                      isActive ? 'border-dredd-green bg-gray-300/80' : 'border-gray-800 bg-gray-300/60'
+                    className={`w-full text-left rounded-2xl border-2 p-5 transition-all duration-200 backdrop-blur-md shadow-md hover:shadow-xl ${
+                      isActive
+                        ? 'border-dredd-green bg-white/90 ring-2 ring-dredd-green/30'
+                        : 'border-gray-800/30 bg-white/60 hover:border-gray-800 hover:bg-white/80'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
-                    <div className="flex justify-between items-start text-gray-800 mb-3">
-                      <IconComponent size={28} />
-                      <MdAir size={22} className="opacity-30" />
+                    <div className="flex justify-between items-start text-gray-800 mb-2">
+                      <div className="p-2.5 rounded-xl bg-gray-200/60 border border-gray-300">
+                        <IconComponent size={24} className={isActive ? 'text-dredd-green' : 'text-gray-700'} />
+                      </div>
+                      <MdAir size={18} className="opacity-30" />
                     </div>
-                    <span className="font-misa text-gray-800 text-5xl sm:text-6xl block">{item.text}</span>
-                    {isActive && <span className="mt-1 text-dredd-green font-anta text-xs block">● Active</span>}
+                    <span className="font-squids text-gray-900 text-2xl sm:text-3xl block mt-2">{item.text}</span>
+                    <span className="font-anta text-xs text-gray-500 mt-1 block">
+                      {item.view === null && 'Return to introductory canvas'}
+                      {item.view === 'about' && 'Bio, experience history & stack background'}
+                      {item.view === 'projects' && 'Production web & mobile architectures'}
+                      {item.view === 'skills' && 'Full technical stack & engineering toolset'}
+                      {item.view === 'contact' && 'Direct channels, WhatsApp & email'}
+                    </span>
+                    {isActive && (
+                      <span className="mt-2 text-dredd-green font-anta text-xs font-semibold flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-dredd-green animate-ping" />
+                        Currently Open
+                      </span>
+                    )}
                   </motion.button>
-                );
-              })}
-            </div>
-
-            {/* Social — mobile */}
-            <div className="flex sm:hidden items-center gap-5 mt-8 text-gray-800">
-              {socialLinks.map((l) => {
-                const IconComponent = l.Icon;
-                return (
-                  <a key={l.id} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={l.label}
-                    className="hover:text-dredd-green transition-colors duration-200">
-                    <IconComponent size={34} />
-                  </a>
                 );
               })}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }

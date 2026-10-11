@@ -52,7 +52,7 @@ export default function StackView() {
           <motion.div
             key={`${item.view}-${index}`}
             ref={overlayRef}
-            className="fixed inset-0 overflow-y-auto noise-bg bg-[#dedede] text-slate-800 pt-20 sm:pt-24"
+            className="fixed inset-0 overflow-y-auto view-canvas-bg noise-bg text-slate-800 pt-24 sm:pt-28"
             role="dialog"
             aria-modal="true"
             aria-label={title}

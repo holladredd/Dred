@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/home/HeroSection';
-import TechOverview from '../components/home/TechOverview';
-import FeaturedProjects from '../components/home/FeaturedProjects';
 import StackView from '../components/StackView';
 import CustomCursor from '../components/CustomCursor';
 
@@ -63,17 +61,15 @@ export default function Home() {
 
       <CustomCursor />
 
-      {/* Signature noisy brand light canvas matching original portfolio aesthetics */}
-      <div className="noise-bg min-h-screen text-gray-800 flex flex-col">
+      {/* Signature textured & noisy brand light canvas with generated backdrop */}
+      <div className="hero-canvas-bg noise-bg min-h-screen text-gray-800 flex flex-col pt-16">
         <Navbar />
 
-        <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6 space-y-20">
+        <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-4 flex flex-col justify-center">
           <HeroSection />
-          <TechOverview />
-          <FeaturedProjects />
         </main>
 
-        <footer className="border-t border-gray-400/20 py-8 text-center text-xs text-gray-500 font-anta">
+        <footer className="border-t border-gray-400/20 py-6 text-center text-xs text-gray-600 font-anta backdrop-blur-sm bg-white/30">
           <p>© {new Date().getFullYear()} Folayan Olamide Mayokun. All rights reserved.</p>
         </footer>
 
