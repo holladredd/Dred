@@ -97,9 +97,15 @@ export default function ContactView() {
                 <h3 className="text-gray-500 font-anta text-sm uppercase tracking-wider mb-1">Email</h3>
                 <a
                   href="mailto:folayanolamide@gmail.com"
-                  className="font-anta text-gray-900 hover:text-dredd-green hover:underline text-xl sm:text-2xl md:text-3xl font-medium break-all transition-colors"
+                  className="font-anta text-gray-900 hover:text-dredd-green hover:underline text-xl sm:text-2xl md:text-3xl font-medium break-all transition-colors block"
                 >
                   folayanolamide@gmail.com
+                </a>
+                <a
+                  href="mailto:holladred@gmail.com"
+                  className="font-anta text-gray-600 hover:text-dredd-green hover:underline text-base sm:text-lg md:text-xl font-medium break-all transition-colors block mt-1"
+                >
+                  holladred@gmail.com
                 </a>
               </div>
             </motion.div>

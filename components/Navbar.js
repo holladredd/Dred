@@ -189,10 +189,10 @@ export default function Navbar() {
                     whileHover="hover"
                     exit="exit"
                     onClick={() => handleNav(item.view)}
-                    className={`w-full text-left rounded-2xl border-2 p-5 sm:p-6 transition-all duration-200 backdrop-blur-md shadow-md hover:shadow-xl ${
+                    className={`w-full text-left rounded-2xl border p-5 sm:p-6 transition-all duration-200 backdrop-blur-md shadow-md hover:shadow-xl ${
                       isActive
                         ? 'border-dredd-green bg-white/95 ring-2 ring-dredd-green/30'
-                        : 'border-gray-800/25 bg-white/60 hover:border-gray-800 hover:bg-white/85'
+                        : 'border-gray-300/60 bg-white/60 hover:border-gray-600/60 hover:bg-white/85'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >

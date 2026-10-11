@@ -10,7 +10,9 @@ export const projects = [
     category: 'Full-Stack',
     type: 'Brand & E-Commerce',
     role: 'Founder & Full-Stack Engineer',
-    image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: '/img/novare-logo.png',
+    bgStyle: 'contain',
+    bgColor: '#0a0a0a',
     viewlink: 'https://novarewear.com/',
     verifiedSource: false,
     repos: [],
@@ -26,7 +28,7 @@ export const projects = [
     category: 'Full-Stack',
     type: 'Logistics Ecosystem',
     role: 'Lead Architect & Full-Stack Engineer',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: '/img/logo-dark.svg',
     viewlink: '',
     verifiedSource: true,
     repos: [
@@ -142,7 +144,7 @@ export const projects = [
     category: 'Full-Stack',
     type: 'Talent Marketplace',
     role: 'Full-Stack Developer (Contract)',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: '/img/log.jpg',
     viewlink: '',
     verifiedSource: true,
     repos: [

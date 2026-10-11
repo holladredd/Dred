@@ -111,10 +111,16 @@ export default function ProjectsView() {
                 {/* Top Banner & Media */}
                 <div>
                   <div
-                    className="relative h-56 w-full bg-cover bg-center overflow-hidden"
-                    style={{ backgroundImage: `url(${project.image})` }}
+                    className={`relative h-56 w-full overflow-hidden`}
+                    style={{
+                      backgroundImage: `url(${project.image})`,
+                      backgroundSize: project.bgStyle || 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundColor: project.bgColor || 'transparent',
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/85 via-gray-900/30 to-black/20" />
+                    <div className={`absolute inset-0 ${project.bgStyle === 'contain' ? 'bg-black/40' : 'bg-gradient-to-t from-gray-950/85 via-gray-900/30 to-black/20'}`} />
 
                     {/* Category Pill */}
                     <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-2">
