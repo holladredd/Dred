@@ -190,17 +190,18 @@ export default function ProjectsView() {
           </motion.div>
         </AnimatePresence>
 
-      {filtered.length === 0 && (
-        <div className="text-center py-16 bg-white/50 rounded-2xl border border-dashed border-gray-300">
-          <p className="font-anta text-gray-600 mb-2">No projects match the selected criteria.</p>
-          <button
-            onClick={() => { setFilter('All'); setSearch(''); }}
-            className="font-anta text-sm text-dredd-green underline"
-          >
-            Reset filters
-          </button>
-        </div>
-      )}
+        {filtered.length === 0 && (
+          <div className="text-center py-16 bg-white/50 rounded-2xl border border-dashed border-gray-300">
+            <p className="font-anta text-gray-600 mb-2">No projects match the selected criteria.</p>
+            <button
+              onClick={() => { setFilter('All'); setSearch(''); }}
+              className="font-anta text-sm text-dredd-green underline"
+            >
+              Reset filters
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* Link to Graphic Design & Creative Works */}
       <motion.button
@@ -214,7 +215,6 @@ export default function ProjectsView() {
         <FaLayerGroup size={14} />
         <span>View Graphic Design</span>
       </motion.button>
-      </div>
     </div>
   );
 }
