@@ -56,28 +56,28 @@ export default function Navbar() {
   return (
     <div>
       {/* Top bar */}
-      <nav className="relative z-50 mix-blend-difference" aria-label="Site navigation">
-        <div className="flex justify-between items-center p-2">
+      <nav className="fixed top-0 left-0 right-0 z-[100] pointer-events-none" aria-label="Site navigation">
+        <div className="flex justify-between items-center p-2 sm:p-4 max-w-7xl mx-auto w-full">
           <button
             onClick={() => handleNav(null)}
-            className="w-16 h-16 m-3 rounded-full opacity-80 hover:opacity-100 transition-opacity focus-visible:ring-2 focus-visible:ring-dredd-green"
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-gray-800/40 pointer-events-auto opacity-90 hover:opacity-100 hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-dredd-green"
             aria-label="Go to home"
           >
-            <Image src="/img/hd.png" alt="Folayan Olamide Mayokun logo" width={64} height={64} className="rounded-full object-cover" priority />
+            <Image src="/img/dredd.png" alt="Folayan Olamide Mayokun" width={64} height={64} className="rounded-full object-cover w-full h-full" priority />
           </button>
 
           <AnimatePresence mode="wait" initial={false}>
             {open ? (
               <motion.button key="close" variants={toggleV} initial="hidden" animate="visible" whileHover="hover" exit="exit"
                 onClick={() => setOpen(false)} aria-label="Close navigation menu" aria-expanded="true"
-                className="m-4 text-dredd-blue focus-visible:ring-2 focus-visible:ring-dredd-green rounded">
-                <MdClose size={48} />
+                className="pointer-events-auto p-3 text-gray-800 bg-white/70 backdrop-blur-md rounded-full shadow-md hover:text-dredd-green focus-visible:ring-2 focus-visible:ring-dredd-green transition-colors">
+                <MdClose size={36} />
               </motion.button>
             ) : (
               <motion.button key="open" variants={toggleV} initial="hidden" animate="visible" whileHover="hover" exit="exit"
                 onClick={() => setOpen(true)} aria-label="Open navigation menu" aria-expanded="false"
-                className="m-4 text-dredd-blue focus-visible:ring-2 focus-visible:ring-dredd-green rounded">
-                <MdMenu size={48} />
+                className="pointer-events-auto p-3 text-gray-800 bg-white/70 backdrop-blur-md rounded-full shadow-md hover:text-dredd-green focus-visible:ring-2 focus-visible:ring-dredd-green transition-colors">
+                <MdMenu size={36} />
               </motion.button>
             )}
           </AnimatePresence>
@@ -93,7 +93,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-40 noise-bg flex flex-col items-center justify-center px-4"
+            className="fixed inset-0 z-[95] noise-bg flex flex-col items-center justify-center px-4"
             role="dialog" aria-modal="true" aria-label="Navigation menu"
           >
             {/* Social — desktop */}

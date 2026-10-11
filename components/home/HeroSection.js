@@ -14,7 +14,7 @@ const item = {
 export default function HeroSection() {
   const { push } = useNavigation();
   return (
-    <section aria-label="Introduction" className="flex flex-col items-start justify-center min-h-[calc(100vh-80px)] px-6 md:px-16 lg:px-24 pt-4">
+    <section aria-label="Introduction" className="flex flex-col items-start justify-center min-h-[calc(100vh-140px)] w-full pt-16 sm:pt-20">
       <motion.div variants={container} initial="hidden" animate="visible">
         <motion.p variants={item} className="font-anta text-gray-500 text-sm md:text-base mb-1 tracking-widest uppercase">
           Hello, I&apos;m

@@ -32,7 +32,7 @@ const chip = {
 export default function TechOverview() {
   const { push } = useNavigation();
   return (
-    <section aria-label="Skills overview" className="px-6 md:px-16 lg:px-24 py-12 pb-24">
+    <section aria-label="Skills overview" className="w-full py-6">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.45 }} className="mb-6">
         <h2 className="font-squids text-gray-800 text-3xl md:text-4xl mb-1">Skills & Tools</h2>
         <div className="h-0.5 w-16 bg-dredd-green mb-2" />

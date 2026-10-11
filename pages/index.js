@@ -59,7 +59,7 @@ export default function Home() {
       <div className="noise-bg min-h-screen text-gray-800 flex flex-col">
         <Navbar />
 
-        <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+        <main className="flex-1 w-full mx-auto px-6 sm:px-12 md:px-16 lg:px-20 xl:px-28 py-8 space-y-24 max-w-[1600px]">
           <HeroSection />
           <TechOverview />
           <FeaturedProjects />

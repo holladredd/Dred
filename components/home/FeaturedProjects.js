@@ -13,7 +13,7 @@ const card = {
 export default function FeaturedProjects() {
   const { push } = useNavigation();
   return (
-    <section aria-label="Featured projects" className="px-6 md:px-16 lg:px-24 py-14">
+    <section aria-label="Featured projects" className="w-full py-6 pb-20">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.45 }}>
         <h2 className="font-squids text-gray-800 text-3xl md:text-4xl mb-1">Selected Projects</h2>
         <div className="h-0.5 w-16 bg-dredd-green mb-8" />

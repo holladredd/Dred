@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MdArrowBack, MdClose } from 'react-icons/md';
 import { useNavigation } from '../context/NavigationContext';
 
 import AboutView from './views/AboutView';
@@ -21,26 +20,20 @@ const VIEW_MAP = {
   graphics:        { title: 'Graphics & Art',  Component: GraphicsView },
 };
 
-const slideVariants = {
-  initial: { x: '100%', opacity: 0 },
-  animate: { x: 0, opacity: 1 },
-  exit:    { x: '100%', opacity: 0 },
-};
-
-const reducedVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit:    { opacity: 0 },
+// Different entrance vectors for views (dynamic angles instead of static right-to-left)
+const VIEW_DIRECTIONS = {
+  about:           { initial: { y: '-100%', x: '-20%', rotate: -3, opacity: 0, scale: 0.9 }, exit: { y: '-100%', rotate: -2, opacity: 0 } },
+  services:        { initial: { y: '100%',  x: '20%',  rotate: 3,  opacity: 0, scale: 0.9 }, exit: { y: '100%',  rotate: 2,  opacity: 0 } },
+  skills:          { initial: { x: '-100%', y: '30%',  rotate: -4, opacity: 0, scale: 0.9 }, exit: { x: '-100%', rotate: -2, opacity: 0 } },
+  contact:         { initial: { y: '100%',  x: '-20%', rotate: 4,  opacity: 0, scale: 0.9 }, exit: { y: '100%',  rotate: 3,  opacity: 0 } },
+  projects:        { initial: { x: '100%',  y: '-25%', rotate: 3,  opacity: 0, scale: 0.9 }, exit: { x: '100%',  rotate: 2,  opacity: 0 } },
+  'project-detail':{ initial: { scale: 0.5, y: '50%',  rotate: -5, opacity: 0 },             exit: { scale: 0.6, y: '50%', opacity: 0 } },
+  graphics:        { initial: { x: '-100%', y: '-40%', rotate: 5,  opacity: 0, scale: 0.9 }, exit: { x: '-100%', rotate: 3,  opacity: 0 } },
 };
 
 export default function StackView() {
-  const { stack, pop, closeAll } = useNavigation();
+  const { stack } = useNavigation();
   const overlayRef = useRef(null);
-  
-  const prefersReduced =
-    typeof window !== 'undefined'
-      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      : false;
 
   return (
     <AnimatePresence>
@@ -49,52 +42,30 @@ export default function StackView() {
         if (!viewConfig) return null;
 
         const { title, Component } = viewConfig;
-        const hasParent = index > 0;
-        const zIndex = 50 + index * 10;
+        const zIndex = 40 + index * 5;
+        const animationVariant = VIEW_DIRECTIONS[item.view] || {
+          initial: { y: '100%', opacity: 0, scale: 0.9 },
+          exit:    { y: '100%', opacity: 0 },
+        };
 
         return (
           <motion.div
             key={`${item.view}-${index}`}
             ref={overlayRef}
-            className="fixed inset-0 overflow-y-auto noise-bg bg-[#dedede] text-slate-800"
+            className="fixed inset-0 overflow-y-auto noise-bg bg-[#dedede] text-slate-800 pt-20 sm:pt-24"
             role="dialog"
             aria-modal="true"
             aria-label={title}
             tabIndex={-1}
-            variants={prefersReduced ? reducedVariants : slideVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ type: 'spring', stiffness: 300, damping: 32, mass: 0.8 }}
+            initial={animationVariant.initial}
+            animate={{ x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }}
+            exit={animationVariant.exit}
+            transition={{ type: 'spring', stiffness: 260, damping: 26, mass: 0.85 }}
             style={{ zIndex }}
           >
-            {/* Sticky Header */}
-            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-400/20 backdrop-blur-md bg-[#dedede]/85">
-              <button
-                onClick={pop}
-                aria-label={hasParent ? 'Go back' : 'Close view'}
-                className="flex items-center gap-2 text-gray-800 hover:text-dredd-green transition-colors font-anta text-sm font-semibold"
-              >
-                <MdArrowBack size={20} />
-                <span>{hasParent ? 'Back' : 'Close'}</span>
-              </button>
-
-              <h2 className="font-squids text-gray-800 text-lg md:text-xl tracking-wide absolute left-1/2 -translate-x-1/2 pointer-events-none">
-                {title}
-              </h2>
-
-              <button
-                onClick={closeAll}
-                aria-label="Close all views"
-                className="p-1.5 text-gray-600 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-300/60"
-              >
-                <MdClose size={22} />
-              </button>
-            </div>
-
-            {/* View Body */}
-            <div className="w-full pb-16">
-              <Component params={item.params} />
+            {/* View Body without any top back or close button — Navbar on top handles navigation */}
+            <div className="w-full pb-20">
+              <Component {...(item.params || {})} />
             </div>
           </motion.div>
         );
