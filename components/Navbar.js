@@ -57,7 +57,7 @@ export default function Navbar() {
     <div>
       {/* Top bar */}
       <nav className="fixed top-0 left-0 right-0 z-[100] pointer-events-none" aria-label="Site navigation">
-        <div className="flex justify-between items-center p-2 sm:p-4 max-w-7xl mx-auto w-full">
+        <div className="flex justify-between items-center p-3 sm:p-5 w-full">
           <button
             onClick={() => handleNav(null)}
             className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-gray-800/40 pointer-events-auto opacity-90 hover:opacity-100 hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-dredd-green"

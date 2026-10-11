@@ -11,7 +11,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Folayan Olamide Mayokun",
-    "jobTitle": "Full-Stack Software Engineer & Creative Developer",
+    "jobTitle": "Full Stack Developer | Web & Mobile Applications",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Lagos",
@@ -24,26 +24,34 @@ export default function Home() {
     ],
     "knowsAbout": [
       "JavaScript",
+      "TypeScript",
       "React",
       "Next.js",
+      "Nuxt.js",
       "Node.js",
+      "Express.js",
       "Python",
-      "PHP",
+      "Django",
+      "REST APIs",
       "MongoDB",
+      "PostgreSQL",
       "MySQL",
+      "Firebase",
       "React Native",
-      "Graphic Design"
+      "Flutter",
+      "Dart",
+      "Expo"
     ]
   };
 
   return (
     <>
       <Head>
-        <title>Folayan Olamide Mayokun | Full-Stack Software Engineer & Creative Developer</title>
-        <meta name="description" content="Portfolio of Folayan Olamide Mayokun - Full-Stack Software Engineer, Mobile Developer, and Creative Designer based in Lagos, Nigeria." />
-        <meta name="keywords" content="Folayan Olamide, Mayokun, Folayan Olamide Mayokun, Full-Stack Engineer, React, Next.js, React Native, Lagos Nigeria, Graphic Designer" />
-        <meta property="og:title" content="Folayan Olamide Mayokun | Portfolio" />
-        <meta property="og:description" content="Portfolio of Folayan Olamide Mayokun - Software Engineer & Designer." />
+        <title>Folayan Olamide Mayokun | Full Stack Developer | Web & Mobile Applications</title>
+        <meta name="description" content="Folayan Olamide Mayokun is a Full Stack Developer building web applications, backend systems, APIs, and cross-platform mobile apps with React, Next.js, Node.js, Django, React Native, and Flutter." />
+        <meta name="keywords" content="Folayan Olamide Mayokun, Full Stack Developer, Web Applications, Mobile Applications, React, Next.js, Node.js, Flutter, React Native, Django, Lagos Nigeria" />
+        <meta property="og:title" content="Folayan Olamide Mayokun | Full Stack Developer" />
+        <meta property="og:description" content="Full Stack Developer building web applications, backend systems, and mobile applications." />
         <meta property="og:type" content="website" />
         <meta name="geo.region" content="NG-LA" />
         <meta name="geo.placename" content="Lagos, Nigeria" />
@@ -59,7 +67,7 @@ export default function Home() {
       <div className="noise-bg min-h-screen text-gray-800 flex flex-col">
         <Navbar />
 
-        <main className="flex-1 w-full mx-auto px-6 sm:px-12 md:px-16 lg:px-20 xl:px-28 py-8 space-y-24 max-w-[1600px]">
+        <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6 space-y-20">
           <HeroSection />
           <TechOverview />
           <FeaturedProjects />

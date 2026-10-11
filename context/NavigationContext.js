@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 const NavigationContext = createContext(null);
 
 const VIEW_TO_QUERY = {
-  about:           'about',
-  services:        'services',
-  skills:          'skills',
-  contact:         'contact',
-  projects:        'projects',
-  'project-detail':'project',
-  graphics:        'graphics',
+  about: 'about',
+  services: 'services',
+  skills: 'skills',
+  contact: 'contact',
+  projects: 'projects',
+  'project-detail': 'project',
+  graphics: 'graphics',
 };
 const QUERY_TO_VIEW = Object.fromEntries(Object.entries(VIEW_TO_QUERY).map(([k, v]) => [v, k]));
 
@@ -24,11 +24,11 @@ export function NavigationProvider({ children }) {
     if (isProgrammatic.current) { isProgrammatic.current = false; return; }
     const { view, id } = router.query;
     if (view && QUERY_TO_VIEW[view]) {
-      setStack([{ view: QUERY_TO_VIEW[view], params: id ? { projectId: Number(id) } : {} }]);
+      setStack([{ view: QUERY_TO_VIEW[view], params: id ? { projectId: id } : {} }]);
     } else {
       setStack([]);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query]);
 
   // Body scroll lock
@@ -43,7 +43,7 @@ export function NavigationProvider({ children }) {
     const onKey = (e) => { if (e.key === 'Escape' && stack.length > 0) pop(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stack]);
 
   const push = useCallback((view, params = {}) => {
@@ -85,7 +85,7 @@ export function NavigationProvider({ children }) {
     router.push('/', undefined, { shallow: true });
   }, [router]);
 
-  const currentView  = stack.length > 0 ? stack[stack.length - 1] : null;
+  const currentView = stack.length > 0 ? stack[stack.length - 1] : null;
   const previousView = stack.length > 1 ? stack[stack.length - 2] : null;
 
   return (

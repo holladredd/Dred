@@ -1,0 +1,97 @@
+import { DiJavascript } from 'react-icons/di';
+import {
+  SiReact,
+  SiNextdotjs,
+  SiNuxt,
+  SiTypescript,
+  SiHtml5,
+  SiTailwindcss,
+  SiMui,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiDjango,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiFirebase,
+  SiFlutter,
+  SiDart,
+  SiExpo,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiRender,
+  SiNetlify,
+  SiPostman,
+} from 'react-icons/si';
+import { FaAws, FaCss3Alt } from 'react-icons/fa';
+import { TbApi } from 'react-icons/tb';
+
+export const skillCategories = [
+  {
+    id: 'frontend',
+    title: 'Frontend Development',
+    summary: 'Modern, performant client-side architectures, component systems, and reactive interfaces.',
+    skills: [
+      { name: 'JavaScript', Icon: DiJavascript },
+      { name: 'TypeScript', Icon: SiTypescript },
+      { name: 'React', Icon: SiReact },
+      { name: 'Next.js', Icon: SiNextdotjs },
+      { name: 'Nuxt.js', Icon: SiNuxt },
+      { name: 'HTML5', Icon: SiHtml5 },
+      { name: 'CSS3', Icon: FaCss3Alt },
+      { name: 'Tailwind CSS', Icon: SiTailwindcss },
+      { name: 'Material UI', Icon: SiMui },
+    ],
+  },
+  {
+    id: 'backend',
+    title: 'Backend Development & APIs',
+    summary: 'Scalable server-side logic, microservices, RESTful API design, and authentication flows.',
+    skills: [
+      { name: 'Node.js', Icon: SiNodedotjs },
+      { name: 'Express.js', Icon: SiExpress },
+      { name: 'Python', Icon: SiPython },
+      { name: 'Django', Icon: SiDjango },
+      { name: 'Django REST Framework', Icon: SiDjango },
+      { name: 'REST APIs & Integration', Icon: TbApi },
+    ],
+  },
+  {
+    id: 'databases',
+    title: 'Databases & Cloud Storage',
+    summary: 'Data modeling, relational & non-relational database architecture, and realtime syncing.',
+    skills: [
+      { name: 'MongoDB', Icon: SiMongodb },
+      { name: 'PostgreSQL', Icon: SiPostgresql },
+      { name: 'MySQL', Icon: SiMysql },
+      { name: 'Firebase', Icon: SiFirebase },
+    ],
+  },
+  {
+    id: 'mobile',
+    title: 'Mobile Development',
+    summary: 'Native-feel cross-platform mobile application development for iOS and Android devices.',
+    skills: [
+      { name: 'Flutter', Icon: SiFlutter },
+      { name: 'Dart', Icon: SiDart },
+      { name: 'React Native', Icon: SiReact },
+      { name: 'Expo', Icon: SiExpo },
+    ],
+  },
+  {
+    id: 'devops',
+    title: 'Deployment & Development Tools',
+    summary: 'CI/CD workflows, cloud infrastructure, version control, and API testing tooling.',
+    skills: [
+      { name: 'Git', Icon: SiGit },
+      { name: 'GitHub', Icon: SiGithub },
+      { name: 'Vercel', Icon: SiVercel },
+      { name: 'Render', Icon: SiRender },
+      { name: 'Netlify', Icon: SiNetlify },
+      { name: 'AWS', Icon: FaAws },
+      { name: 'Postman', Icon: SiPostman },
+    ],
+  },
+];

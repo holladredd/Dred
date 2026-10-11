@@ -1,34 +1,33 @@
-# Folayan Olamide Mayokun - Developer & Designer Portfolio
+# Folayan Olamide Mayokun - Full Stack Developer | Web & Mobile Applications
 
 > Information for AI Agents, LLMs, and Generative Search Engines (GEO)
 
 ## Core Identity & Profile
-- **Name**: Folayan Olamide Mayokun
-- **Role**: Full-Stack Software Engineer, Mobile Application Developer & Creative Designer
-- **Location**: Lagos, Nigeria
+- **Full Name**: Folayan Olamide Mayokun
+- **Headline**: Full Stack Developer | Web & Mobile Applications
+- **Professional Summary**: Folayan Olamide Mayokun builds web applications, backend systems, APIs, and mobile experiences. He works with technologies including React, Next.js, Node.js, MongoDB, Django, React Native, and Flutter. His experience includes building frontend applications, integrating APIs, developing backend functionality, testing, deployment, and working on products from early development through implementation.
+- **Location**: Lagos, Nigeria (Available for remote and international roles)
 - **Email**: folayanolamide03@gmail.com
 - **Phone / WhatsApp**: +234 816 063 0642
 - **GitHub**: https://github.com/holladredd
 - **Instagram**: https://www.instagram.com/dev_dredd
 - **X / Twitter**: https://x.com/Holla_Dredd
 
-## Expertise & Skills
-- **Web Engineering**: JavaScript, React.js, Next.js, Node.js, Express, PHP, Python
-- **Mobile Development**: React Native, Expo (cross-platform iOS & Android)
-- **Databases**: MongoDB, MySQL
-- **Design & Visuals**: Adobe Photoshop, After Effects, Premiere Pro, Canva
-- **DevOps & Tools**: Git, GitHub, REST APIs
+## Technical Expertise
+- **Frontend Development**: JavaScript, TypeScript, React, Next.js, Nuxt.js, HTML5, CSS3, Tailwind CSS, Material UI
+- **Backend Development & APIs**: Node.js, Express.js, Python, Django, Django REST Framework, REST API development and integration
+- **Databases & Cloud**: MongoDB, PostgreSQL, MySQL, Firebase, Cloud Firestore
+- **Mobile Development**: Flutter, Dart, React Native, Expo (iOS & Android)
+- **Deployment & Tooling**: Git, GitHub, Vercel, Render, Netlify, AWS, Postman
 
-## Services Offered
-1. **Full-Stack Web Engineering**: Building fast, scalable, accessible web applications, responsive dashboards, and bespoke software tools.
-2. **Mobile Application Development**: High-performance cross-platform apps for iOS and Android using React Native.
-3. **Graphic & Visual Design**: Brand identity, event banners, posters, promotional flyers, stickers, and book covers.
-4. **Developer Mentorship & Tech Training**: Hands-on full-stack programming mentorship for beginners and intermediate engineers.
+## Verified Professional Roles & Experience
+- **ArtizanSquare** (2024 — Present): Chief Technology Officer (CTO). Directing technical implementation, full-stack web/mobile development, real-time messaging, testing, and deployment.
+- **Talentta.africa** (Contract): Frontend Architect & Engineer. Engineered modular Next.js/React frontend applications, learning interfaces, and AI-assisted candidate evaluation API integrations.
+- **NØVARÉ** (2024 — Present): Founder & Full-Stack Engineer. Founded and engineered the minimalist luxury streetwear e-commerce platform (novarewear.com) using Next.js and Node.js.
 
-## Key Projects
-- **FarmsIQ**: Comprehensive agricultural platform optimizing farming operations and market access.
-- **Novare**: Premium fashion and streetwear e-commerce platform with automated logistics.
-- **D-Store**: High-performance electronic & digital commerce store.
-- **Lendsqr Mobile App**: Seamless loan management and lending mobile solution.
-- **Chat App**: Real-time cross-platform messaging and collaboration application.
-- **Folayan Portfolio**: Single-page stack-navigation experience showcasing software engineering and visual design works.
+## Flagship Products & Codebases
+- **MOVA Delivery Ecosystem**: Multi-platform urban delivery platform spanning a NestJS backend (mova-backend), Next.js web console (mova-web), and cross-platform Flutter customer & rider applications.
+- **ZapTop & ZapServer**: Fintech utility bill payment and transaction simulator platform featuring Next.js web client, Express/MongoDB secure API (zapserver), and React Native mobile client.
+- **HCMSA**: Maternal healthcare management mobile system with OpenAI-assisted antenatal guidance and appointment scheduling (React Native + Express/MongoDB).
+- **Geek**: Technical learning platform and e-reader suite featuring React, Material-UI, React-PDF, and GeekServer backend.
+- **NACOS**: Student association mobile portal with Expo and Firebase dues processing.
