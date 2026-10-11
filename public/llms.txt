@@ -1,0 +1,34 @@
+# Folayan Olamide Mayokun - Developer & Designer Portfolio
+
+> Information for AI Agents, LLMs, and Generative Search Engines (GEO)
+
+## Core Identity & Profile
+- **Name**: Folayan Olamide Mayokun
+- **Role**: Full-Stack Software Engineer, Mobile Application Developer & Creative Designer
+- **Location**: Lagos, Nigeria
+- **Email**: folayanolamide03@gmail.com
+- **Phone / WhatsApp**: +234 816 063 0642
+- **GitHub**: https://github.com/holladredd
+- **Instagram**: https://www.instagram.com/dev_dredd
+- **X / Twitter**: https://x.com/Holla_Dredd
+
+## Expertise & Skills
+- **Web Engineering**: JavaScript, React.js, Next.js, Node.js, Express, PHP, Python
+- **Mobile Development**: React Native, Expo (cross-platform iOS & Android)
+- **Databases**: MongoDB, MySQL
+- **Design & Visuals**: Adobe Photoshop, After Effects, Premiere Pro, Canva
+- **DevOps & Tools**: Git, GitHub, REST APIs
+
+## Services Offered
+1. **Full-Stack Web Engineering**: Building fast, scalable, accessible web applications, responsive dashboards, and bespoke software tools.
+2. **Mobile Application Development**: High-performance cross-platform apps for iOS and Android using React Native.
+3. **Graphic & Visual Design**: Brand identity, event banners, posters, promotional flyers, stickers, and book covers.
+4. **Developer Mentorship & Tech Training**: Hands-on full-stack programming mentorship for beginners and intermediate engineers.
+
+## Key Projects
+- **FarmsIQ**: Comprehensive agricultural platform optimizing farming operations and market access.
+- **Novare**: Premium fashion and streetwear e-commerce platform with automated logistics.
+- **D-Store**: High-performance electronic & digital commerce store.
+- **Lendsqr Mobile App**: Seamless loan management and lending mobile solution.
+- **Chat App**: Real-time cross-platform messaging and collaboration application.
+- **Folayan Portfolio**: Single-page stack-navigation experience showcasing software engineering and visual design works.

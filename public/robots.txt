@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Direct AI Agents to LLMs context file
+# LLMs-Text: /llms.txt

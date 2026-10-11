@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fonts ─────────────────────────────────────────── */
+@font-face {
+  font-family: 'Squids';
+  src: url('/fonts/GameOfSquids.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Anta';
+  src: url('/fonts/Anta-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Misa';
+  src: url('/fonts/13_Misa.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair';
+  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Root Variables ─────────────────────────────────── */
+:root {
+  --dredd-green: #009b4d;
+  --dredd-blue: #c7d9f7;
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+}
+
+/* ─── Reset ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Scrollbar hidden ───────────────────────────────── */
+* { -ms-overflow-style: none; scrollbar-width: none; }
+*::-webkit-scrollbar { display: none; }
+
+/* ─── Body ───────────────────────────────────────────── */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+/* ─── Noise texture overlay ─────────────────────────── */
+.noise-bg {
+  background-color: #e5e7eb;
+  background-image: var(--noise);
+  background-blend-mode: overlay;
+  background-size: 200px 200px;
+}
+
+/* ─── Custom cursor ──────────────────────────────────── */
+.custom-cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(199, 217, 247, 0.12);
+  border: 1.5px solid rgba(199, 217, 247, 0.5);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  top: 0; left: 0;
+  will-change: transform;
+}
+
+/* ─── Stack view base ───────────────────────────────── */
+.stack-view {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ─── Body scroll lock ───────────────────────────────── */
+body.overlay-open { overflow: hidden; }
+
+/* ─── Reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Focus visible ──────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--dredd-green); outline-offset: 3px; }
+
+/* ─── Selection ──────────────────────────────────────── */
+::selection { background: rgba(0,155,77,0.2); color: #1f2937; }
