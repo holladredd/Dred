@@ -47,11 +47,7 @@ export function NavigationProvider({ children }) {
   }, [stack]);
 
   const push = useCallback((view, params = {}) => {
-    setStack((prev) => {
-      const top = prev[prev.length - 1];
-      if (top && top.view === view && JSON.stringify(top.params) === JSON.stringify(params)) return prev;
-      return [...prev, { view, params }];
-    });
+    setStack([{ view, params }]);
     const q = VIEW_TO_QUERY[view];
     if (q) {
       isProgrammatic.current = true;

@@ -1,11 +1,29 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { skillCategories } from '../../data/skills';
 
-const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } } };
-const cardVariant = {
-  hidden:  { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 24,
+    },
+  },
 };
 
 export default function SkillsView() {
@@ -17,98 +35,100 @@ export default function SkillsView() {
       : skillCategories.filter((g) => g.id === selectedGroup);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-8 space-y-10">
-      {/* Header */}
-      <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
-        <p className="font-anta text-dredd-green text-xs uppercase tracking-widest mb-1">Technical Stack</p>
-        <h1 className="font-squids text-gray-800 text-3xl sm:text-5xl mb-2">Technical Skills & Expertise</h1>
-        <div className="h-0.5 w-20 bg-dredd-green mb-4" />
-        <p className="font-anta text-gray-600 text-sm md:text-base max-w-2xl leading-relaxed">
-          Structured inventory of languages, frameworks, backend architectures, databases, and deployment platforms
-          used across production systems and applications.
-        </p>
-      </motion.div>
+    <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6">
+      <div className="w-full max-w-7xl mx-auto space-y-12">
+        {/* Header */}
+        <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
+          <p className="font-anta text-dredd-green text-xs uppercase tracking-widest mb-1 font-semibold">Technical Stack & Proficiency</p>
+          <h1 className="font-squids text-gray-800 text-4xl sm:text-6xl md:text-7xl mb-3 select-none">
+            Skills & Tooling
+          </h1>
+          <div className="h-1 w-24 bg-gradient-to-r from-gray-400 to-gray-800 mb-6" />
+          <p className="font-anta text-gray-700 text-base sm:text-xl max-w-3xl leading-relaxed">
+            Technologies, frameworks, databases, and architectural tooling applied across full-stack web platforms, mobile applications, and backend services.
+          </p>
+        </motion.div>
 
-      {/* Group Navigation */}
-      <div className="flex flex-wrap gap-2">
-        <button
-          onClick={() => setSelectedGroup('all')}
-          className={`px-4 py-2 rounded-full font-anta text-xs sm:text-sm transition-all duration-200 ${
-            selectedGroup === 'all'
-              ? 'bg-gray-800 text-white shadow-md'
-              : 'bg-white/70 hover:bg-white text-gray-700 border border-gray-300/60'
-          }`}
-        >
-          All Domains
-        </button>
-        {skillCategories.map((group) => (
+        {/* Group Selector Pills */}
+        <div className="flex flex-wrap gap-2.5">
           <button
-            key={group.id}
-            onClick={() => setSelectedGroup(group.id)}
-            className={`px-4 py-2 rounded-full font-anta text-xs sm:text-sm transition-all duration-200 ${
-              selectedGroup === group.id
-                ? 'bg-gray-800 text-white shadow-md'
-                : 'bg-white/70 hover:bg-white text-gray-700 border border-gray-300/60'
+            onClick={() => setSelectedGroup('all')}
+            className={`px-5 py-2.5 rounded-full font-anta text-xs sm:text-sm font-medium transition-all duration-200 ${
+              selectedGroup === 'all'
+                ? 'bg-gray-900 text-white shadow-md'
+                : 'bg-white/70 hover:bg-white text-gray-700 border border-gray-300/80 hover:shadow-sm'
             }`}
           >
-            {group.title}
+            All Disciplines
           </button>
-        ))}
-      </div>
+          {skillCategories.map((group) => (
+            <button
+              key={group.id}
+              onClick={() => setSelectedGroup(group.id)}
+              className={`px-5 py-2.5 rounded-full font-anta text-xs sm:text-sm font-medium transition-all duration-200 ${
+                selectedGroup === group.id
+                  ? 'bg-gray-900 text-white shadow-md'
+                  : 'bg-white/70 hover:bg-white text-gray-700 border border-gray-300/80 hover:shadow-sm'
+              }`}
+            >
+              {group.title}
+            </button>
+          ))}
+        </div>
 
-      {/* Grid of Skill Categories */}
-      <AnimatePresence mode="wait">
+        {/* Categories Presentation - Fluid, Open Layout (Lesser Boxy Cards) */}
         <motion.div
           key={selectedGroup}
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
           animate="visible"
-          exit={{ opacity: 0 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="space-y-12"
         >
           {visibleGroups.map((group) => (
             <motion.div
               key={group.id}
-              variants={cardVariant}
-              className="bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden flex flex-col justify-between"
+              variants={itemVariants}
+              className="border-b border-gray-300/70 pb-10 last:border-b-0"
             >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="font-squids text-gray-800 text-xl">{group.title}</h2>
-                  <span className="font-anta text-xs px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-600">
-                    {group.skills.length} skills
-                  </span>
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-6">
+                <div>
+                  <h2 className="font-squids text-gray-900 text-2xl sm:text-3xl tracking-tight">
+                    {group.title}
+                  </h2>
+                  <p className="font-anta text-gray-600 text-sm sm:text-base mt-1 max-w-2xl leading-relaxed">
+                    {group.summary}
+                  </p>
                 </div>
-                <p className="font-anta text-gray-500 text-xs mb-6 leading-relaxed">{group.summary}</p>
-
-                <div className="grid grid-cols-2 gap-2.5">
-                  {group.skills.map((skill) => {
-                    const IconComp = skill.Icon;
-                    return (
-                      <div
-                        key={skill.name}
-                        className="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-50/80 border border-gray-200/60 hover:border-dredd-green hover:bg-white transition-all duration-200"
-                      >
-                        <span className="text-gray-700">
-                          <IconComp size={20} />
-                        </span>
-                        <span className="font-anta text-gray-800 text-xs sm:text-sm font-medium">
-                          {skill.name}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
+                <span className="font-anta text-xs font-semibold uppercase tracking-widest text-dredd-green self-start md:self-auto">
+                  {group.skills.length} Technologies
+                </span>
               </div>
 
-              <div className="px-6 py-3 bg-gray-50/60 border-t border-gray-100 flex items-center justify-between text-xs font-anta text-gray-500">
-                <span>Verified in code & projects</span>
-                <span className="text-dredd-green font-medium">Production ready</span>
+              {/* Skills Interactive Badges Strip */}
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {group.skills.map((skill) => {
+                  const IconComp = skill.Icon;
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/75 hover:bg-white border border-gray-300/80 hover:border-dredd-green shadow-sm hover:shadow-md transition-all duration-200 cursor-default group"
+                    >
+                      <span className="text-gray-700 group-hover:text-dredd-green transition-colors">
+                        <IconComp size={24} />
+                      </span>
+                      <span className="font-anta text-gray-900 text-sm sm:text-base font-medium">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
         </motion.div>
-      </AnimatePresence>
+      </div>
     </div>
   );
 }
