@@ -17,8 +17,11 @@ export default function App({ Component, pageProps }) {
         <meta name="theme-color" content="#009b4d" />
         <link rel="canonical" href="https://folayanolamide.dev/" />
 
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon — profile image shows in browser tab */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
         {/* Mobile PWA meta */}
         <meta name="mobile-web-app-capable" content="yes" />
