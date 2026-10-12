@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaExternalLinkAlt, FaCode, FaArrowRight, FaLayerGroup } from 'react-icons/fa';
 import { projects, categories } from '../../data/projects';
 import { useNavigation } from '../../context/NavigationContext';
+import Image from 'next/image';
 
 const container = {
   hidden: { opacity: 0 },
@@ -111,19 +112,30 @@ export default function ProjectsView() {
                 {/* Top Banner & Media */}
                 <div>
                   <div
-                    className={`relative h-56 w-full overflow-hidden`}
-                    style={{
-                      backgroundImage: `url(${project.image})`,
-                      backgroundSize: project.bgStyle || 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundColor: project.bgColor || 'transparent',
-                    }}
+                    className="relative h-56 w-full overflow-hidden flex items-center justify-center"
+                    style={{ backgroundColor: project.bgColor || '#111827' }}
                   >
-                    <div className={`absolute inset-0 ${project.bgStyle === 'contain' ? 'bg-black/40' : 'bg-gradient-to-t from-gray-950/85 via-gray-900/30 to-black/20'}`} />
+                    {/* Image — covers for photos, contained for logos */}
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className={`absolute inset-0 w-full h-full ${
+                        project.bgStyle === 'contain'
+                          ? 'object-contain p-8'
+                          : 'object-cover'
+                      }`}
+                      loading="lazy"
+                    />
+
+                    {/* Overlay — subtle for logos, gradient for photos */}
+                    <div className={`absolute inset-0 ${
+                      project.bgStyle === 'contain'
+                        ? 'bg-black/20'
+                        : 'bg-gradient-to-t from-gray-950/85 via-gray-900/30 to-black/10'
+                    }`} />
 
                     {/* Category Pill */}
-                    <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-2">
+                    <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-2 z-10">
                       <span className="text-xs font-anta px-3 py-1 bg-gray-900/90 text-white rounded-full backdrop-blur-md border border-white/20 font-medium">
                         {project.category}
                       </span>
@@ -136,7 +148,7 @@ export default function ProjectsView() {
 
                     {/* Source Code Badge */}
                     {project.repos && project.repos.length > 0 && (
-                      <div className="absolute top-3.5 right-3.5">
+                      <div className="absolute top-3.5 right-3.5 z-10">
                         <span className="text-xs font-anta px-2.5 py-1 bg-white/95 text-gray-900 rounded-full shadow-md flex items-center gap-1.5 font-semibold">
                           <FaCode size={12} className="text-dredd-green" />
                           {project.repos.length} {project.repos.length === 1 ? 'repo' : 'repos'}
@@ -144,8 +156,8 @@ export default function ProjectsView() {
                       </div>
                     )}
 
-                    <div className="absolute bottom-3.5 left-4 right-4">
-                      <h3 className="font-squids text-white text-2xl sm:text-3xl drop-shadow-md tracking-tight">
+                    <div className="absolute bottom-3.5 left-4 right-4 z-10">
+                      <h3 className="font-squids text-white text-2xl sm:text-3xl drop-shadow-lg tracking-tight">
                         {project.name}
                       </h3>
                     </div>
